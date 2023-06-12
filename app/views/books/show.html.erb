@@ -1,2 +1,26 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1>User info</h1>
+<div><%= image_tag @book.user.get_profile_image(100,100) %></div>
+<div>
+  <p>name:<%= @book.user.name %></p>
+</div>
+<div>
+  <p>introduction:<%= @book.user.introduction %></p>
+</div>
+
+
+<%= render 'form', book: @book_new %>
+
+
+<h1>Book detail</h1>
+<table>
+  <tr>
+    <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
+    <td><%= @book.title %></td>
+    <td><%= @book.body %></td>
+    <td>
+      <% if @book.user == current_user %>
+        <%= link_to "destroy", book_path(@book), method: :delete %>
+      <% end %>
+    </td>
+  </tr>
+</table>

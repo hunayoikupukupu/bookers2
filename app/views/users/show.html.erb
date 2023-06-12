@@ -1,15 +1,27 @@
+<h1>User info</h1>
+<div><%= image_tag @user.get_profile_image(100,100) %></div>
 <div>
-  <h1>Books</h1>
+  <p>name:<%= @user.name %></p>
+</div>
+<div>
+  <p>introduction:<%= @user.introduction %></p>
+</div>
+
+
+<%= render 'books/form', book: @book_new %>
+
+
+<h1>Books</h1>
+<div>
   <table>
     <tr>
       <th></th>
       <th>Title</th>
       <th>Opinion</th>
     </tr>
-
     <% @books.each do |book| %>
       <tr>
-        <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+        <td><%= image_tag @user.get_profile_image(100,100) %></td>
         <td>
           <%= link_to book_path(book.id) do %>
             <%= book.title %>
@@ -19,8 +31,4 @@
       </tr>
     <% end %>
   </table>
-
 </div>
-
-
-<%= render 'form', book: @book %>

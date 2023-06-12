@@ -17,6 +17,9 @@
           <%= link_to "投稿form", books_path %>
         </li>
         <li>
+          <%= link_to "my page", user_path(current_user.id) %>
+        </li>
+        <li>
           <%= link_to "log out", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
