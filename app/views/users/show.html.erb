@@ -1,12 +1,6 @@
-<h1>User info</h1>
-<div><%= image_tag @user.get_profile_image(100,100) %></div>
-<div>
-  <p>name:<%= @user.name %></p>
-</div>
-<div>
-  <p>introduction:<%= @user.introduction %></p>
-</div>
+<%= render 'info', user: @user %>
 
+<P><%= link_to "Edit", edit_user_path(@user) %></P>
 
 <%= render 'books/form', book: @book_new %>
 

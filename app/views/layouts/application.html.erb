@@ -14,15 +14,18 @@
     <header>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "投稿form", books_path %>
-        </li>
-        <li>
           <%= link_to "my page", user_path(current_user.id) %>
         </li>
         <li>
           <%= link_to "log out", destroy_user_session_path, method: :delete %>
         </li>
       <% else %>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "About", about_path %>
+        </li>
         <li>
           <%= link_to "sign up", new_user_registration_path %>
         </li>
