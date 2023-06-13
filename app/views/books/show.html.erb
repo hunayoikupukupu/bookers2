@@ -1,6 +1,10 @@
 <%= render 'users/info', user: @user %>
 
-<P><%= link_to "Edit", edit_user_path(@user) %></P>
+<% if @user == current_user %>
+  <P><%= link_to "Edit", edit_user_path(@user) %></P>
+<% else %>
+  <P><%= link_to "Edit", user_path(current_user.id) %></P>
+<% end %>
 
 
 <%= render 'form', book: @book_new %>
@@ -14,6 +18,7 @@
     <td><%= @book.body %></td>
     <td>
       <% if @book.user == current_user %>
+        <%= link_to "edit", edit_book_path(@book) %>
         <%= link_to "destroy", book_path(@book), method: :delete %>
       <% end %>
     </td>

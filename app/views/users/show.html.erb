@@ -1,6 +1,10 @@
 <%= render 'info', user: @user %>
 
-<P><%= link_to "Edit", edit_user_path(@user) %></P>
+<% if @user == current_user %>
+  <P><%= link_to "Edit", edit_user_path(@user) %></P>
+<% else %>
+  <P><%= link_to "Edit", user_path(current_user.id) %></P>
+<% end %>
 
 <%= render 'books/form', book: @book_new %>
 
