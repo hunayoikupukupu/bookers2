@@ -1,3 +1,7 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+
 <%= render 'info', user: @user %>
 
 <% if @user == current_user %>
