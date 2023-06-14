@@ -19,7 +19,6 @@
   box-sizing: border-box;
 }
 
-
 .welcome_box {
   padding-left: 30px;
 }
@@ -35,4 +34,10 @@
 
 .signup_box {
   font-size: 130%;
+  margin-top: 20px;
+}
+
+.login_box {
+  font-size: 130%;
+  margin-top: 20px;
 }
