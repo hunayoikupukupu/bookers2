@@ -18,3 +18,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.welcome_box {
+  padding-left: 30px;
+}
+
+.welcome_text {
+  margin-top: 20px;
+  font-size: 300%;
+}
+
+.welcome_text_content {
+  font-size: 130%;
+}
