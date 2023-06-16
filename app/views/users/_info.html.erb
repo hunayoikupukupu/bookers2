@@ -1,8 +1,13 @@
+
 <h1>User info</h1>
-<div><%= image_tag user.get_profile_image(100,100) %></div>
-<div>
-  <p>name:<%= user.name %></p>
-</div>
-<div>
-  <p>introduction:<%= user.introduction %></p>
-</div>
+  <%= image_tag user.get_profile_image(100,100), class:"border-bottom"%>
+  <table class="table">
+    <tr class="border-bottom">
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr class="border-bottom">
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </table>
