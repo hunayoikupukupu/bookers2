@@ -1,36 +1,51 @@
-<div>
-  <%= flash[:notice] %>
-</div>
+<div class="container">
+  <div>
+    <%= flash[:notice] %>
+  </div>
 
-<%= render 'info', user: @user %>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="row">
+        <div class="row"><%= render 'info', user: @user %></div>
 
-<% if @user == current_user %>
-  <P><%= link_to "Edit", edit_user_path(@user) %></P>
-<% else %>
-  <P><%= link_to "Edit", user_path(current_user.id) %></P>
-<% end %>
-
-<%= render 'books/form', book: @book_new %>
-
-
-<h1>Books</h1>
-<div>
-  <table>
-    <tr>
-      <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
-    </tr>
-    <% @books.each do |book| %>
-      <tr>
-        <td><%= image_tag @user.get_profile_image(100,100) %></td>
-        <td>
-          <%= link_to book_path(book.id) do %>
-            <%= book.title %>
+        <div class="row mx-auto w-100">
+          <% if @user == current_user %>
+            <%= link_to edit_user_path(@user), class:"btn btn-outline-dark w-100" do %>
+              <i class="fas fa-user-cog"></i>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(current_user.id), class:"btn btn-outline-dark w-100" do %>
+              <i class="fas fa-user-cog"></i>
+            <% end %>
           <% end %>
-        </td>
-        <td><%= book.body %></td>
-      </tr>
-    <% end %>
-  </table>
+        </div>
+
+
+        <div class="row"><%= render 'books/form', book: @book_new %></div>
+      </div>
+    </div>
+
+    <div class="col-lg-1"></div>
+    <div class="col-lg-8">
+      <h1>Books</h1>
+      <table class="table">
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+        <% @books.each do |book| %>
+          <tr>
+            <td><%= image_tag @user.get_profile_image(100,100) %></td>
+            <td>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+            </td>
+            <td><%= book.body %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
